@@ -7,18 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D27498EC29EC481000FC85D8 /* FavoritePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27498EB29EC481000FC85D8 /* FavoritePin.swift */; };
+		D27498EF29ED353C00FC85D8 /* DailyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27498EE29ED353B00FC85D8 /* DailyImage.swift */; };
 		D28A18AC29EA45F10007CA7E /* NFCtron_taskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */; };
 		D28A18AE29EA45F10007CA7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18AD29EA45F10007CA7E /* ContentView.swift */; };
 		D28A18B029EA45F80007CA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28A18AF29EA45F80007CA7E /* Assets.xcassets */; };
 		D28A18B329EA45F80007CA7E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28A18B229EA45F80007CA7E /* Preview Assets.xcassets */; };
+		D28A18BA29EA46450007CA7E /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18B929EA46450007CA7E /* Data.swift */; };
+		D28A18BC29EAC0BE0007CA7E /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18BB29EAC0BE0007CA7E /* DailyView.swift */; };
+		D28A18BE29EAC0CD0007CA7E /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18BD29EAC0CD0007CA7E /* LaunchView.swift */; };
+		D28A18CA29EBFA0D0007CA7E /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18C929EBFA0D0007CA7E /* RowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D27498EB29EC481000FC85D8 /* FavoritePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePin.swift; sourceTree = "<group>"; };
+		D27498EE29ED353B00FC85D8 /* DailyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyImage.swift; sourceTree = "<group>"; };
 		D28A18A829EA45F10007CA7E /* NFCtron task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NFCtron task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCtron_taskApp.swift; sourceTree = "<group>"; };
 		D28A18AD29EA45F10007CA7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D28A18AF29EA45F80007CA7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D28A18B229EA45F80007CA7E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D28A18B929EA46450007CA7E /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		D28A18BB29EAC0BE0007CA7E /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
+		D28A18BD29EAC0CD0007CA7E /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		D28A18C929EBFA0D0007CA7E /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +44,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D27498ED29EC482600FC85D8 /* ViewComponents */ = {
+			isa = PBXGroup;
+			children = (
+				D27498EE29ED353B00FC85D8 /* DailyImage.swift */,
+				D28A18C929EBFA0D0007CA7E /* RowView.swift */,
+				D27498EB29EC481000FC85D8 /* FavoritePin.swift */,
+			);
+			path = ViewComponents;
+			sourceTree = "<group>";
+		};
 		D28A189F29EA45F10007CA7E = {
 			isa = PBXGroup;
 			children = (
@@ -52,7 +74,8 @@
 			isa = PBXGroup;
 			children = (
 				D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */,
-				D28A18AD29EA45F10007CA7E /* ContentView.swift */,
+				D28A18BF29EAC0DC0007CA7E /* Views */,
+				D28A18C029EAC0E40007CA7E /* Model */,
 				D28A18AF29EA45F80007CA7E /* Assets.xcassets */,
 				D28A18B129EA45F80007CA7E /* Preview Content */,
 			);
@@ -65,6 +88,25 @@
 				D28A18B229EA45F80007CA7E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		D28A18BF29EAC0DC0007CA7E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D28A18AD29EA45F10007CA7E /* ContentView.swift */,
+				D28A18BB29EAC0BE0007CA7E /* DailyView.swift */,
+				D28A18BD29EAC0CD0007CA7E /* LaunchView.swift */,
+				D27498ED29EC482600FC85D8 /* ViewComponents */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D28A18C029EAC0E40007CA7E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D28A18B929EA46450007CA7E /* Data.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D28A18CA29EBFA0D0007CA7E /* RowView.swift in Sources */,
+				D27498EF29ED353C00FC85D8 /* DailyImage.swift in Sources */,
+				D28A18BC29EAC0BE0007CA7E /* DailyView.swift in Sources */,
+				D27498EC29EC481000FC85D8 /* FavoritePin.swift in Sources */,
+				D28A18BE29EAC0CD0007CA7E /* LaunchView.swift in Sources */,
 				D28A18AE29EA45F10007CA7E /* ContentView.swift in Sources */,
+				D28A18BA29EA46450007CA7E /* Data.swift in Sources */,
 				D28A18AC29EA45F10007CA7E /* NFCtron_taskApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -285,7 +333,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -313,7 +361,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -1,11 +1,7 @@
-//
-//  ContentView.swift
-//  NFCtron task
-//
-//  Created by Terka on 15.04.2023.
-//
-
 import SwiftUI
+
+
+// tab bar
 
 struct ContentView: View {
     var body: some View {
