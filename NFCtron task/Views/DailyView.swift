@@ -1,22 +1,27 @@
 import SwiftUI
 
 struct DailyView: View {
-    @State var daily: Daily
+    @State var daily: Daily?
     
     var body: some View {
         ZStack {
-            Color.lightGray.edgesIgnoringSafeArea([.all])
+            Color.lightGray.edgesIgnoringSafeArea([.top])
             ScrollView {
                 VStack {
-                    DailyImage(daily: daily)
-                    VStack(alignment: .leading, spacing: 10) {
-                        Text("Explanation")
-                            .font(.system(size: 33, weight: .light))
-                        Text(daily.explanation)
+                    if let daily = daily {
+                        DailyImage(daily: daily)
+                            .padding(.top)
+                        VStack(alignment: .leading, spacing: 10) {
+                            Text("Explanation")
+                                .font(.system(size: 33, weight: .light))
+                            Text(daily.explanation)
+                        }
+                        .frame(width: 300)
+                        .frame(maxHeight: .infinity)
+                        .padding()
+                    } else {
+                        Text("Chyba")
                     }
-                    .frame(width: 300)
-                    .frame(maxHeight: .infinity)
-                    .padding()
                 }
                 .task {
                     do {

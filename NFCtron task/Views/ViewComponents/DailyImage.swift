@@ -1,10 +1,3 @@
-//
-//  DailyImage.swift
-//  NFCtron task
-//
-//  Created by Terka on 17.04.2023.
-//
-
 import SwiftUI
 
 struct DailyImage: View {
@@ -49,7 +42,8 @@ struct DailyImage: View {
                         .font(.system(size: 33, weight: .light))
                 }
             }
-            .padding([.top, .bottom, .trailing])
+            .padding(.trailing, 50)
+            .padding()
             .foregroundColor(.white)
             .frame(width: 300, height: 500)
         }
