@@ -19,8 +19,6 @@ struct DailyView: View {
                         .frame(width: 300)
                         .frame(maxHeight: .infinity)
                         .padding()
-                    } else {
-                        Text("Chyba")
                     }
                 }
                 .task {

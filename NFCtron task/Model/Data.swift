@@ -2,7 +2,7 @@ import Foundation
 
 struct Launch: Decodable, Identifiable {
     var name: String
-    var date_unix: Date
+    var dateUnix: Date
     var id: String
     var payloads: [String]
     var upcoming: Bool
@@ -48,7 +48,7 @@ class Data {
 }
         
 extension Launch {
-    static var launchTest = Launch(name: "FalconSat", date_unix: Date(timeIntervalSince1970: 1590866520), id: "5eb87cd9ffd86e000604b32a", payloads: ["5eb0e4b6b6c3bb0006eeb1e2"], upcoming: false, webcast: nil, wikipedia: "https://en.wikipedia.org/wiki/DemoSat")
+    static var launchTest = Launch(name: "FalconSat", dateUnix: Date(timeIntervalSince1970: 1590866520), id: "5eb87cd9ffd86e000604b32a", payloads: ["5eb0e4b6b6c3bb0006eeb1e2"], upcoming: false, webcast: nil, wikipedia: "https://en.wikipedia.org/wiki/DemoSat")
 }
 
 extension Daily {

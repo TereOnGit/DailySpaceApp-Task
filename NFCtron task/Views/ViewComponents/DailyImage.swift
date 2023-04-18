@@ -14,7 +14,12 @@ struct DailyImage: View {
             AsyncImage(url: URL(string: daily.hdurl), transaction: Transaction(animation: .spring())) { phase in
                 switch phase {
                 case .empty:
-                    AsyncImage(url: URL(string: daily.url))
+                    AsyncImage(url: URL(string: daily.url)) { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fill)
+                    } placeholder: {
+                        ProgressView()
+                    }
              
                 case .success(let image):
                     image
@@ -25,7 +30,8 @@ struct DailyImage: View {
                     Image(systemName: "exclamationmark.icloud")
                         .resizable()
                         .scaledToFit()
-             
+             // upravit - načte poslední užívané data z databáze
+                    
                 @unknown default:
                     Image(systemName: "exclamationmark.icloud")
                 }
@@ -55,5 +61,6 @@ struct DailyImage_Previews: PreviewProvider {
         DailyImage(daily: .dailyTest)
     }
 }
+
 
 

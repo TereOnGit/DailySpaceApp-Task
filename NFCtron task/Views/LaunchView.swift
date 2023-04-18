@@ -31,10 +31,9 @@ struct LaunchView: View {
                     ForEach(launch) { launch in
                         if launch.upcoming == true {
                         RowView(launch: launch)
-                        }
+                    }
                     }
                 }
-                
                 //upravit místo List ZStack a posuvný seznam
             }
             .searchable(text: $searchText)
@@ -43,7 +42,7 @@ struct LaunchView: View {
                 do {
                     self.launch = try await Data.getLaunchData()
                 } catch {
-                    print("Error while fetching launch data")
+                    print("Chyba: \(error)")
                 }
             }
         }

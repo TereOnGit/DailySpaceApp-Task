@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D22FAEF029EE833E00373F7A /* DailyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22FAEEF29EE833E00373F7A /* DailyImage.swift */; };
 		D27498EC29EC481000FC85D8 /* FavoritePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27498EB29EC481000FC85D8 /* FavoritePin.swift */; };
-		D27498EF29ED353C00FC85D8 /* DailyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27498EE29ED353B00FC85D8 /* DailyImage.swift */; };
 		D28A18AC29EA45F10007CA7E /* NFCtron_taskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */; };
 		D28A18AE29EA45F10007CA7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18AD29EA45F10007CA7E /* ContentView.swift */; };
 		D28A18B029EA45F80007CA7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D28A18AF29EA45F80007CA7E /* Assets.xcassets */; };
@@ -20,8 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D22FAEEF29EE833E00373F7A /* DailyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyImage.swift; sourceTree = "<group>"; };
 		D27498EB29EC481000FC85D8 /* FavoritePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePin.swift; sourceTree = "<group>"; };
-		D27498EE29ED353B00FC85D8 /* DailyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyImage.swift; sourceTree = "<group>"; };
 		D28A18A829EA45F10007CA7E /* NFCtron task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NFCtron task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCtron_taskApp.swift; sourceTree = "<group>"; };
 		D28A18AD29EA45F10007CA7E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,7 +47,7 @@
 		D27498ED29EC482600FC85D8 /* ViewComponents */ = {
 			isa = PBXGroup;
 			children = (
-				D27498EE29ED353B00FC85D8 /* DailyImage.swift */,
+				D22FAEEF29EE833E00373F7A /* DailyImage.swift */,
 				D28A18C929EBFA0D0007CA7E /* RowView.swift */,
 				D27498EB29EC481000FC85D8 /* FavoritePin.swift */,
 			);
@@ -180,7 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D28A18CA29EBFA0D0007CA7E /* RowView.swift in Sources */,
-				D27498EF29ED353C00FC85D8 /* DailyImage.swift in Sources */,
+				D22FAEF029EE833E00373F7A /* DailyImage.swift in Sources */,
 				D28A18BC29EAC0BE0007CA7E /* DailyView.swift in Sources */,
 				D27498EC29EC481000FC85D8 /* FavoritePin.swift in Sources */,
 				D28A18BE29EAC0CD0007CA7E /* LaunchView.swift in Sources */,
