@@ -7,21 +7,23 @@ struct RowView: View {
     @State private var showingStreamAlert = false
     
     var body: some View {
-        HStack(spacing: 10) {
-            VStack {
+        HStack {
+            HStack(spacing: 40) {
                 VStack(alignment: .leading) {
                     HStack {
                         Image("Starlink")
                             .resizable()
-                            .frame(width: 45, height: 45)
+                            .frame(maxWidth: 45, maxHeight: 45)
                             .clipShape(Circle())
                         VStack(alignment: .leading) {
                             Text(launch.name)
-                                .font(.system(size: 20, weight: .bold))
+                                .fontWeight(.bold)
+                                .scaledToFit()
+                                .minimumScaleFactor(0.8)
                             Text("countdown")
+                                .font(.system(size: 10))
                         }
                     }
-                    
                     HStack {
                         Button {
                             if let webcast = launch.webcast {
@@ -30,12 +32,17 @@ struct RowView: View {
                                 showingStreamAlert = true
                             }
                         } label: {
-                            Image(systemName: "play.fill")
-                            Text("Livestream")
-                                .font(.system(size: 17, weight: .bold))
+                            HStack(spacing: 10) {
+                                Image(systemName: "play.fill")
+                                Text("Livestream")
+                                    .fontWeight(.bold)
+                            }
+                            .scaledToFill()
+                            .minimumScaleFactor(0.5)
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 5)
+                            .tint(.white)
                         }
-                        .frame(width: 130, height: 25)
-                        .tint(.white)
                         .background(Color.lightRed)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
                         
@@ -46,16 +53,21 @@ struct RowView: View {
                                 showingWikiAlert = true
                             }
                         } label: {
-                            Image(systemName: "link")
-                                .rotationEffect(.init(degrees: 45))
-                            Text("Wiki")
+                            HStack {
+                                Image(systemName: "link")
+                                    .rotationEffect(.init(degrees: 45))
+                                Text("Wiki")
+                                .fontWeight(.bold)
+                            }
+                            .scaledToFit()
+                            .tint(.black)
+                            .minimumScaleFactor(0.3)
                         }
-                        .tint(.black)
-                        .font(.system(size: 17, weight: .bold))
                     }
+                    .scaledToFit()
+                    .scaledToFit()
+                    .minimumScaleFactor(0.8)
                 }
-                .padding()
-            }
             
 //            FavoritePin {
 //            isSet: [launch.index].isFavorite
@@ -66,11 +78,12 @@ struct RowView: View {
                     .font(.system(size: 30))
                     .tint(.white)
                     .rotationEffect(.init(degrees: -45))
-                    .frame(width: 80, height: 80)
+                    .frame(width: 70, height: 70)
                     .background(Color(.darkYellow))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 //            }
+        }
             .padding()
         }
         

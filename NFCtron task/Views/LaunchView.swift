@@ -22,7 +22,6 @@ struct LaunchView: View {
             
             Divider()
             
-            ScrollView {
                 //    List {
                 //        ForEach(launch.favorites) { launch in
                 //            RowView(launch: launch)
@@ -35,7 +34,6 @@ struct LaunchView: View {
                     }
                 }
                 //upravit místo List ZStack a posuvný seznam
-            }
             .searchable(text: $searchText)
             
             .task {
