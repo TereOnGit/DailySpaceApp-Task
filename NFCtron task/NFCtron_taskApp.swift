@@ -12,6 +12,7 @@ struct NFCtron_taskApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(FavoritesLaunches())
         }
     }
 }

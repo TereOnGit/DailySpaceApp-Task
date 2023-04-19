@@ -20,17 +20,17 @@ struct DailyImage: View {
                     } placeholder: {
                         ProgressView()
                     }
-             
+                    
                 case .success(let image):
                     image
                         .resizable()
                         .scaledToFill()
-             
+                    
                 case .failure(_):
                     Image(systemName: "exclamationmark.icloud")
                         .resizable()
                         .scaledToFit()
-             // upravit - načte poslední užívané data z databáze
+                    // upravit - načte poslední užívané data z databáze
                     
                 @unknown default:
                     Image(systemName: "exclamationmark.icloud")

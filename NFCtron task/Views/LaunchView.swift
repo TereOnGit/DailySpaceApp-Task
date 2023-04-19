@@ -1,16 +1,19 @@
 import SwiftUI
 
 struct LaunchView: View {
-    @State var launch: [Launch] = []
+    @State var launches: [Launch] = []
+    @EnvironmentObject var favorites: FavoritesLaunches
     @State private var searchText = ""
     
-//    private var searchedResults: [Launch] {
-//        var searchedLaunches: [Launch] = []
-//        if $launch.name.contains(searchText) {
-//            searchedLaunches.append($launch)
-//        }
-//        return searchedLaunches
-//    }
+    private var searchedResults: [Launch] {
+        if searchText.isEmpty {
+            return launches
+        } else {
+            return launches.filter { launch in
+                launch.name.contains(searchText)
+            }
+        }
+    }
     
     var body: some View {
         VStack {
@@ -30,33 +33,30 @@ struct LaunchView: View {
             
             Divider()
             
-            
-                //    List {
-                //        ForEach(launch.favorites) { launch in
-                //            RowView(launch: launch)
-                //        }
+ //           ScrollView {
                 List {
-                    if self.searchText.isEmpty {
-                        ForEach(launch) { launch in
-                            if launch.dateUnix > Date.now {
-                            RowView(launch: launch)
-                            } else {
-                                RowView(launch: launch)
-                            }
-                    }
-                    //               } else {
-                    //                   ForEach(searchedResults) { launch in
-                    //                       RowView(launch: launch)
-                    //                   }
-                    }
+                    //                ForEach(favorites) { launch in
+                    //                    RowView(launch: launch)
                 }
+                .frame(maxWidth: .infinity, maxHeight: 200)
+                Divider()
+                List {
+                    ForEach(searchedResults) { launch in
+                        if launch.dateUnix > Date.now {
+                            RowView(launch: launch)
+                        } else {
+                            RowView(launch: launch)
+                        }
+                    }
+ //               }
+            }
             
                 //upravit místo List ZStack a posuvný seznam
             .searchable(text: $searchText)
             
             .task {
                 do {
-                    self.launch = try await Data.getLaunchData()
+                    self.launches = try await Data.getLaunchData()
                 } catch {
                     print("Chyba: \(error)")
                 }
@@ -71,4 +71,3 @@ struct LaunchView_Previews: PreviewProvider {
     }
 }
 
-// time remaining .onReceive

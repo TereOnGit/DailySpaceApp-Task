@@ -1,15 +1,19 @@
 import Foundation
 
-struct Launch: Decodable, Identifiable {
+struct Launch: Decodable, Identifiable, Hashable {
+    
     var name: String
     var dateUnix: Date
     var id: String
     var payloads: [String]
     var upcoming: Bool
-    var webcast: String?
-    var wikipedia: String?
+    var links: Links
     
-//    ?? var isFavorite: Bool = false
+    struct Links: Decodable, Hashable {
+        var webcast: URL?
+        var wikipedia: URL?
+    }
+    
 }
 
 struct Daily: Decodable {
@@ -17,6 +21,12 @@ struct Daily: Decodable {
     var title: String
     var url: String
     var hdurl: String
+}
+
+class FavoritesLaunches: ObservableObject {
+    @Published var favorites: Set<Launch> = []
+    
+    init() { }
 }
 
 class Data {
@@ -45,10 +55,11 @@ class Data {
         let responseData = try await urlSession.data(for: request).0
         return try decoder.decode(Daily.self, from: responseData)
     }
+    
 }
         
 extension Launch {
-    static var launchTest = Launch(name: "FalconSat", dateUnix: Date(timeIntervalSince1970: 1692369079), id: "5eb87cd9ffd86e000604b32a", payloads: ["5eb0e4b6b6c3bb0006eeb1e2"], upcoming: false, webcast: nil, wikipedia: "https://en.wikipedia.org/wiki/DemoSat")
+    static var launchTest = Launch(name: "FalconSat", dateUnix: Date(timeIntervalSince1970: 1692369079), id: "5eb87cd9ffd86e000604b32a", payloads: ["5eb0e4b6b6c3bb0006eeb1e2"], upcoming: false, links: Launch.Links(webcast: nil, wikipedia: URL(string: "https://en.wikipedia.org/wiki/DemoSat")))
 }
 
 extension Daily {

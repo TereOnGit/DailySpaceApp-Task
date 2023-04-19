@@ -2,8 +2,10 @@ import SwiftUI
 
 struct RowView: View {
     @State var launch: Launch
+    @EnvironmentObject var favoriteLaunches: FavoritesLaunches
+    
     @Environment(\.openURL) var openURL
-//    @Environment(\.openURL) var openURL
+    
     @State private var showingWikiAlert = false
     @State private var showingStreamAlert = false
     
@@ -22,8 +24,8 @@ struct RowView: View {
                                 .scaledToFit()
                                 .minimumScaleFactor(0.8)
                             if launch.dateUnix > Date.now {
-                            Countdown(referenceDate: launch.dateUnix)
-                                .font(.system(size: 10))
+                                Countdown(referenceDate: launch.dateUnix)
+                                    .font(.system(size: 10))
                             } else {
                                 Text("Launched \(launch.dateUnix.formatted(date: .abbreviated, time: .omitted))")
                                     .scaledToFit()
@@ -33,8 +35,8 @@ struct RowView: View {
                     }
                     HStack {
                         Button {
-                            if let webcast = launch.webcast {
-                                openURL(URL(string: webcast)!)
+                            if let webcast = launch.links.webcast {
+                                openURL(webcast)
                             } else {
                                 showingStreamAlert = true
                             }
@@ -55,8 +57,8 @@ struct RowView: View {
                         .buttonStyle(BorderlessButtonStyle())
                         
                         Button {
-                            if let wikipedia = launch.wikipedia {
-                                openURL(URL(string: wikipedia)!)
+                            if let wikipedia = launch.links.wikipedia {
+                                openURL(wikipedia)
                             } else {
                                 showingWikiAlert = true
                             }
@@ -65,7 +67,7 @@ struct RowView: View {
                                 Image(systemName: "link")
                                     .rotationEffect(.init(degrees: 45))
                                 Text("Wiki")
-                                .fontWeight(.bold)
+                                    .fontWeight(.bold)
                             }
                             .scaledToFit()
                             .tint(.black)
@@ -77,23 +79,18 @@ struct RowView: View {
                     .scaledToFit()
                     .minimumScaleFactor(0.8)
                 }
-            
-//            FavoritePin {
-//            isSet: [launch.index].isFavorite
-            Button {
-                // to be added
-            } label: {
-                Image(systemName: "paperclip")
-                    .font(.system(size: 20))
-                    .tint(.white)
-                    .rotationEffect(.init(degrees: -45))
-                    .frame(width: 70, height: 70)
-                    .background(Color(.darkYellow))
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                
+                FavoritePin {
+                    if favoriteLaunches.favorites.contains(launch) {
+                        favoriteLaunches.favorites.remove(launch)
+                    } else {
+                        favoriteLaunches.favorites.insert(launch)
+                    }
+                }
+                .tint(favoriteLaunches.favorites.contains(launch) ? .white : .darkGray)
+                .background(favoriteLaunches.favorites.contains(launch) ? Color(.darkYellow) : (.lightGray))
+                .clipShape(RoundedRectangle(cornerRadius: 10))
             }
-            .buttonStyle(BorderlessButtonStyle())
-//            }
-        }
             .padding()
         }
         

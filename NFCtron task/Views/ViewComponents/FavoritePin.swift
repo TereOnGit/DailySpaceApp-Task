@@ -1,26 +1,24 @@
 import SwiftUI
 
-//struct FavoritePin: View {
+struct FavoritePin: View {
+    let action: () -> Void
     
-    
-//    var body: some View {
+    var body: some View {
         
-//        Button {
-//            $launch.isFavorite.toggle()
-//        } label: {
-//            Image(systemName: "paperclip")
-//                .font(.system(size: 30))
-//                .tint(isFavorite ? .white : .lightGray)
-//                .rotationEffect(.init(degrees: -45))
-//                .frame(width: 80, height: 80)
-//                .background(isFavorite ? Color(.darkYellow) : (.gray))
-//                .clipShape(RoundedRectangle(cornerRadius: 10))
-//        }
-//    }
-//}
+        Button {
+            action()
+        } label: {
+            Image(systemName: "paperclip")
+                .font(.system(size: 30))
+                .rotationEffect(.init(degrees: -45))
+                .frame(width: 80, height: 80)
+        }
+        .buttonStyle(.borderless)
+    }
+}
 
-//struct FavoritePin_Previews: PreviewProvider {
-//    static var previews: some View {
-//        FavoritePin(launch: .launchTest)
-//    }
-//}
+struct FavoritePin_Previews: PreviewProvider {
+    static var previews: some View {
+        FavoritePin { }
+    }
+}

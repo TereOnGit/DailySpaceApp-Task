@@ -10,7 +10,7 @@ struct DailyView: View {
                 VStack {
                     if let daily = daily {
                         DailyImage(daily: daily)
-                            .padding(.top)
+                            .padding(.vertical)
                         VStack(alignment: .leading, spacing: 10) {
                             Text("Explanation")
                                 .font(.system(size: 33, weight: .light))
@@ -18,9 +18,10 @@ struct DailyView: View {
                         }
                         .frame(width: 300)
                         .frame(maxHeight: .infinity)
-                        .padding()
                     }
                 }
+                .padding(.horizontal, 30)
+                
                 .task {
                     do {
                         self.daily = try await Data.getDailyData()
