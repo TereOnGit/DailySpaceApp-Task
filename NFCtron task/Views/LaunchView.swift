@@ -31,33 +31,37 @@ struct LaunchView: View {
             .clipShape(RoundedRectangle(cornerRadius: 10))
             .padding()
             
-            Divider()
-            
-            ScrollView {
-                VStack {
-                    if !favorites.favorites.isEmpty {
-                        List {
-                            ForEach(Array(favorites.favorites)) { launch in
-                                RowView(launch: launch)
+            List {
+                if !favorites.favorites.isEmpty {
+                    Section {
+                        HStack {
+                            Text("Pinned")
+                                .font(.system(size: 20, weight: .bold))
+                            Spacer()
+                            Button {
+                                favorites.favorites.removeAll()
+                            } label: {
+                                Text("Unpin all")
+                                    .font(.system(size: 15))
+                                    .foregroundColor(.gray)
                             }
                         }
-                        .scaledToFill()
-                    }
-                    
-                    Divider()
-                    List {
-                        ForEach(searchedResults) { launch in
-                            if launch.dateUnix > Date.now {
-                                RowView(launch: launch)
-                            } else {
-                                RowView(launch: launch)
-                            }
+                        ForEach(Array(favorites.favorites)) { launch in
+                            RowView(launch: launch)
                         }
                     }
-                    .scaledToFill()
-                    .frame(maxHeight: .infinity)
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                
+                Section("Launches") {
+                    ForEach(searchedResults) { launch in
+                        if launch.dateUnix > Date.now {
+                            RowView(launch: launch)
+                        } else {
+                            RowView(launch: launch)
+                        }
+                    }
+                }
+                
             }
             
                 //upravit místo List ZStack a posuvný seznam
