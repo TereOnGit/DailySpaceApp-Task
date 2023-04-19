@@ -33,24 +33,31 @@ struct LaunchView: View {
             
             Divider()
             
- //           ScrollView {
-            
-            List {
-                ForEach(favorites.favorites) { launch in
-                    RowView(launch: launch)
-                }
-            
-               
-                Divider()
-                List {
-                    ForEach(searchedResults) { launch in
-                        if launch.dateUnix > Date.now {
-                            RowView(launch: launch)
-                        } else {
-                            RowView(launch: launch)
+            ScrollView {
+                VStack {
+                    if !favorites.favorites.isEmpty {
+                        List {
+                            ForEach(Array(favorites.favorites)) { launch in
+                                RowView(launch: launch)
+                            }
+                        }
+                        .scaledToFill()
+                    }
+                    
+                    Divider()
+                    List {
+                        ForEach(searchedResults) { launch in
+                            if launch.dateUnix > Date.now {
+                                RowView(launch: launch)
+                            } else {
+                                RowView(launch: launch)
+                            }
                         }
                     }
- //               }
+                    .scaledToFill()
+                    .frame(maxHeight: .infinity)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             
                 //upravit místo List ZStack a posuvný seznam
