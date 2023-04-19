@@ -41,7 +41,7 @@ class Data {
     static var urlSession: URLSession = .shared
     
     static func getLaunchData() async throws -> [Launch] {
-        guard let url = URL(string: "https://api.spacexdata.com/v5/launches/upcoming") else {fatalError("Missing URL")}
+        guard let url = URL(string: "https://api.spacexdata.com/v5/launches") else {fatalError("Missing URL")}
         let data = try await urlSession.data(from: url).0
         return try decoder.decode([Launch].self, from: data)
     }
