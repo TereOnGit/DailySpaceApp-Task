@@ -34,11 +34,13 @@ struct LaunchView: View {
             Divider()
             
  //           ScrollView {
-                List {
-                    //                ForEach(favorites) { launch in
-                    //                    RowView(launch: launch)
+            
+            List {
+                ForEach(favorites.favorites) { launch in
+                    RowView(launch: launch)
                 }
-                .frame(maxWidth: .infinity, maxHeight: 200)
+            
+               
                 Divider()
                 List {
                     ForEach(searchedResults) { launch in
