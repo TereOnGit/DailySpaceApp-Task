@@ -19,10 +19,7 @@ struct ContentView: View {
                 }
                 .tint(.gray)
         }
-        .onAppear() {
-            UITabBar.appearance().barTintColor = .white
-            
-        }
+        .accentColor(.darkGray)
     }
 }
 
@@ -30,4 +27,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+
+extension Color {
+    static var darkGray = Color(red: 0.22, green: 0.22, blue: 0.22)
 }

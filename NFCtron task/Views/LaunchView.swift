@@ -4,6 +4,14 @@ struct LaunchView: View {
     @State var launch: [Launch] = []
     @State private var searchText = ""
     
+//    private var searchedResults: [Launch] {
+//        var searchedLaunches: [Launch] = []
+//        if $launch.name.contains(searchText) {
+//            searchedLaunches.append($launch)
+//        }
+//        return searchedLaunches
+//    }
+    
     var body: some View {
         VStack {
  
@@ -22,17 +30,27 @@ struct LaunchView: View {
             
             Divider()
             
+            
                 //    List {
                 //        ForEach(launch.favorites) { launch in
                 //            RowView(launch: launch)
                 //        }
                 List {
-                    ForEach(launch) { launch in
-                        if launch.upcoming == true {
-                        RowView(launch: launch)
+                    if self.searchText.isEmpty {
+                        ForEach(launch) { launch in
+                            if launch.dateUnix > Date.now {
+                            RowView(launch: launch)
+                            } else {
+                                RowView(launch: launch)
+                            }
                     }
+                    //               } else {
+                    //                   ForEach(searchedResults) { launch in
+                    //                       RowView(launch: launch)
+                    //                   }
                     }
                 }
+            
                 //upravit místo List ZStack a posuvný seznam
             .searchable(text: $searchText)
             

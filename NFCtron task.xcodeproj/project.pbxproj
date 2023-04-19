@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D22FAEF029EE833E00373F7A /* DailyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22FAEEF29EE833E00373F7A /* DailyImage.swift */; };
+		D247A67F29EEA86F0009B131 /* Countdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = D247A67E29EEA86F0009B131 /* Countdown.swift */; };
 		D27498EC29EC481000FC85D8 /* FavoritePin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27498EB29EC481000FC85D8 /* FavoritePin.swift */; };
 		D28A18AC29EA45F10007CA7E /* NFCtron_taskApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */; };
 		D28A18AE29EA45F10007CA7E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28A18AD29EA45F10007CA7E /* ContentView.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		D22FAEEF29EE833E00373F7A /* DailyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyImage.swift; sourceTree = "<group>"; };
+		D247A67E29EEA86F0009B131 /* Countdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Countdown.swift; sourceTree = "<group>"; };
 		D27498EB29EC481000FC85D8 /* FavoritePin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePin.swift; sourceTree = "<group>"; };
 		D28A18A829EA45F10007CA7E /* NFCtron task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NFCtron task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D28A18AB29EA45F10007CA7E /* NFCtron_taskApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCtron_taskApp.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			children = (
 				D22FAEEF29EE833E00373F7A /* DailyImage.swift */,
 				D28A18C929EBFA0D0007CA7E /* RowView.swift */,
+				D247A67E29EEA86F0009B131 /* Countdown.swift */,
 				D27498EB29EC481000FC85D8 /* FavoritePin.swift */,
 			);
 			path = ViewComponents;
@@ -185,6 +188,7 @@
 				D27498EC29EC481000FC85D8 /* FavoritePin.swift in Sources */,
 				D28A18BE29EAC0CD0007CA7E /* LaunchView.swift in Sources */,
 				D28A18AE29EA45F10007CA7E /* ContentView.swift in Sources */,
+				D247A67F29EEA86F0009B131 /* Countdown.swift in Sources */,
 				D28A18BA29EA46450007CA7E /* Data.swift in Sources */,
 				D28A18AC29EA45F10007CA7E /* NFCtron_taskApp.swift in Sources */,
 			);

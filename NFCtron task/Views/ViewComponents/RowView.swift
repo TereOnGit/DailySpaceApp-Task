@@ -3,6 +3,7 @@ import SwiftUI
 struct RowView: View {
     @State var launch: Launch
     @Environment(\.openURL) var openURL
+//    @Environment(\.openURL) var openURL
     @State private var showingWikiAlert = false
     @State private var showingStreamAlert = false
     
@@ -20,8 +21,14 @@ struct RowView: View {
                                 .fontWeight(.bold)
                                 .scaledToFit()
                                 .minimumScaleFactor(0.8)
-                            Text("countdown")
+                            if launch.dateUnix > Date.now {
+                            Countdown(referenceDate: launch.dateUnix)
                                 .font(.system(size: 10))
+                            } else {
+                                Text("Launched \(launch.dateUnix.formatted(date: .abbreviated, time: .omitted))")
+                                    .scaledToFit()
+                                    .minimumScaleFactor(0.4)
+                            }
                         }
                     }
                     HStack {
@@ -45,6 +52,7 @@ struct RowView: View {
                         }
                         .background(Color.lightRed)
                         .clipShape(RoundedRectangle(cornerRadius: 5))
+                        .buttonStyle(BorderlessButtonStyle())
                         
                         Button {
                             if let wikipedia = launch.wikipedia {
@@ -62,6 +70,7 @@ struct RowView: View {
                             .scaledToFit()
                             .tint(.black)
                             .minimumScaleFactor(0.3)
+                            .buttonStyle(BorderlessButtonStyle())
                         }
                     }
                     .scaledToFit()
@@ -75,13 +84,14 @@ struct RowView: View {
                 // to be added
             } label: {
                 Image(systemName: "paperclip")
-                    .font(.system(size: 30))
+                    .font(.system(size: 20))
                     .tint(.white)
                     .rotationEffect(.init(degrees: -45))
                     .frame(width: 70, height: 70)
                     .background(Color(.darkYellow))
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
+            .buttonStyle(BorderlessButtonStyle())
 //            }
         }
             .padding()
